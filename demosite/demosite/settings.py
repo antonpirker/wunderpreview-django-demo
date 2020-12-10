@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,10 +27,21 @@ SECRET_KEY = '9m3*ua=*66!(u*=zcm+97am0)7hpv=50*z6&82$=$-t5-41*ms'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'example.com',
+]
 
-ADMINS = [('admin', 'admin@example.com')]
+# WunderPreview specific configuration
+IS_WUNDERPREVIEW = os.environ.get('IS_WUNDERPREVIEW', False)
+if IS_WUNDERPREVIEW:
+    # Allow all hosts when running in WunderPreview
+    ALLOWED_HOSTS = [
+        '*',
+    ]
 
+ADMINS = [
+    ('admin', 'admin@example.com'),
+]
 
 # Application definition
 

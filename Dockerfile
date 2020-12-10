@@ -15,4 +15,5 @@ EXPOSE 8000
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
+# You could use the same Docker image to run celery, by giving the celery command to your "docker run"
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "demosite.wsgi:application"]

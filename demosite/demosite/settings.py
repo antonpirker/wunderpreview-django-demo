@@ -45,6 +45,7 @@ if IS_WUNDERPREVIEW:
 
 
 # If in WunderPreview, allow connection from our other previews running in WunderPreview
+# (The regex means everything matching https://*.view.wunderpreview.com)
 #
 # This does NOT give previews from other WunderPreview customers access to this preview. 
 #
@@ -52,7 +53,7 @@ if IS_WUNDERPREVIEW:
 # connection from a preview of customer A to a preview vom customer B.
 if IS_WUNDERPREVIEW:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://\w+\.view\.wunderpreview\.com$",
+        r"^https:\/\/[^\.]+\.view\.wunderpreview\.com$",
     ]
 else:
     CORS_ALLOWED_ORIGINS = [

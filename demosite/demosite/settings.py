@@ -28,6 +28,7 @@ SECRET_KEY = '9m3*ua=*66!(u*=zcm+97am0)7hpv=50*z6&82$=$-t5-41*ms'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'example.com',
 ]
 

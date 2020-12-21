@@ -43,6 +43,23 @@ if IS_WUNDERPREVIEW:
     # Data will be copied into working dir in Dockerfile
     DATA_DIR = BASE_DIR
 
+
+# If in WunderPreview, allow connection from our other previews running in WunderPreview
+#
+# This does NOT give previews from other WunderPreview customers access to this preview. 
+#
+# Firewall rules in the WunderPreview VPC prevent 
+# connection from a preview of customer A to a preview vom customer B.
+if IS_WUNDERPREVIEW:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://\w+\.view\.wunderpreview\.com$",
+    ]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        "null",  # if run from "file://" url. This is for local development with simple html file as client.
+        "https://example.com",
+    ]
+
 ADMINS = [
     ('admin', 'admin@example.com'),
 ]
@@ -56,12 +73,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'web',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

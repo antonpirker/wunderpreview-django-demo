@@ -7,6 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="icon" href="{% static 'favicon.ico' %}" />
   <link rel="stylesheet" href="{% static 'tailwind.css' %}" />
+  <style>
+    .fancy-feature {
+      width: 50%;
+      height: 50px;
+      font-weight: bold;
+      background-color: rgba(72,187,120,1);
+      color: #fff;
+      cursor: pointer;
+      border-radius: .5rem;
+      margin: 5em 0;
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.3/webcomponents.min.js"></script>
   <title>WunderPreview Example</title>
 </head>
@@ -63,16 +75,8 @@
           <section
             class="border-t-2 border-silver-md flex-grow flex flex-col justify-center py-10 pt-6 px-12 space-y-4">
             <div class="pl-0">
-              <p class="text-slate-dk mt-1 text-sm md:text-base">
-                Check out the <b><a href="/admin" class="underline" target="_blank">Django Admin</a></b> of this project. (See README for credentials)
-              </p>
-              <p class="text-slate-dk mt-1 text-sm md:text-base">
-                There is also a <b><a href="/api/pokemon" class="underline">Rest API</a></b> with some Pokémon data. Of course. 😉
-              </p>
-            </div>
-            <div class="pl-0">
-              <p class="text-slate-dk mt-1 text-sm md:text-base">
-                Value of the <code class="border border-accent rounded-md p-2">IS_WUNDERPREVIEW</code> environment variable: <code class="border border-accent rounded-md p-2">{{ is_wunderpreview }}</code>
+              <p class="text-slate-dk mt-1 text-sm md:text-base" style="text-align: center;">
+                <button class="fancy-feature">Fancy NEW Feature</button>
               </p>
             </div>
             <div class="pl-0">

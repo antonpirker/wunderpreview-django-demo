@@ -16,6 +16,3 @@ Simple Django application that provides a Rest API that serves some data.
 
 - To see a preview of the the `main` branch of this repo visit: https://1ym4crpwnqzc7ui2buf1a7dtky.wdpr.run/
 - The logs of the preview can be found here: https://app.wunderpreview.com/repository/159chqhm5ttzz256x5497mkayb/logs/516e5e5
-
-
-
